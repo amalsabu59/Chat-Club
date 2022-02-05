@@ -6,7 +6,7 @@ import AttachmentIcon from '@mui/icons-material/Attachment';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import MicIcon from '@mui/icons-material/Mic';
-function Chat() {
+function Chat({messages}) {
   return <div className='chat'>
       <div className="chat_header">
           <Avatar />
@@ -27,27 +27,17 @@ function Chat() {
           </div>
       </div>
       <div className="chat_body">
-          <p className='chat_message'>
-              <span className='chat_name'>Amal</span>
-              this is a message
-              <span className='chat_timestamp'>{new
-                  Date().toUTCString()}</span>
-
-          </p>
-          <p className='chat_message'>
-              <span className='chat_name'>Amal</span>
-              this is a message
-              <span className='chat_timestamp'>{new
-                  Date().toUTCString()}</span>
-
-          </p>
-          <p className='chat_reciever chat_message'>
-              <span className='chat_name'>Amal</span>
-              this is a message
-              <span className='chat_timestamp'>{new
-                  Date().toUTCString()}</span>
-
-          </p>
+          {messages.map((messages) => (
+               <p className={`chat_message ${messages.received && "chat_reciever"}`}>
+               <span className='chat_name'>A{messages.name}</span>
+               {messages.message}
+               <span className='chat_timestamp'>{new
+                   Date().toUTCString()}</span>
+ 
+           </p>
+          ))}
+         
+         
       </div>
       <div className="chat_footer">
           <EmojiEmotionsIcon />
