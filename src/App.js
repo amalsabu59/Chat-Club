@@ -25,20 +25,27 @@ useEffect(() => {
 
   var channel = pusher.subscribe('messages');
   channel.bind('inserted', function(newMessage) {
-    alert(JSON.stringify(newMessage));
+    //alert(JSON.stringify(newMessage));
     setMessages([...messages, newMessage])
   });
 
  
 }, [messages]);
 
-console.log(messages)
+const [user, setUser] = useState(null);
+
   return (
     <div className="app">
-      <div className="app_body">
+      
+      {!user ? (
+        <h1>LOGIN</h1>
+      ): (
+        <div className="app_body">
         <Sidebar />
         <Chat messages={messages}/>
       </div>
+      )}
+      
     </div>
   );
 }

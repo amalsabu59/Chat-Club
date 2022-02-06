@@ -8,7 +8,6 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
 function Sidebar() {
     return <div className='sidebar'>
-
         <div className="sidebar_header">
             <Avatar src='https://avatars.githubusercontent.com/u/92331948?v=4' />
             <div className="sidebar_headerRight">
@@ -30,11 +29,12 @@ function Sidebar() {
             </div>
         </div>
         <div className="sidebar_chats">
-            <SidebarChat />
+            <SidebarChat addNewChat/>
             <SidebarChat />
             <SidebarChat />
         </div>
     </div>
+    
 }
 
 export default Sidebar;
