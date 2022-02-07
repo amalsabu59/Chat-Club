@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 import Chat from './Chat';
 import Pusher from 'pusher-js';
 import axios from './axios';
-
+import Login from './Login';
 
 function App() {
 
@@ -38,7 +38,7 @@ const [user, setUser] = useState(null);
     <div className="app">
       
       {!user ? (
-        <h1>LOGIN</h1>
+        <Login />
       ): (
         <div className="app_body">
         <Sidebar />
